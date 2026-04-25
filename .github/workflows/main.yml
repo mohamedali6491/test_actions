@@ -1,18 +1,23 @@
-name: Go Hello World
+name: CI
 
-on: [push] # This tells GitHub when to run the script (e.g., every time you push code)
+on: 
+  push:
+    branches: [ main ]
+  pull_request: 
+    branches:  [ main ]
+  workflow_dispatch: 
 
 jobs:
-  run-hello-world: # This is the ID of your job
-    runs-on: ubuntu-latest # This specifies the virtual machine type
+  build: 
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Go
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.14.0'
+      - name: run a one-line script
+        run: echo hello, world!
 
-      - name: Run Go script
-        run: go run hello.go
+      - name: run a multiline script
+        run: |
+          echo add other actions to build,
+          echo test, and deploy your project
