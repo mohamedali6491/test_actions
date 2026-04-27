@@ -10,8 +10,8 @@ on:
 jobs:
   checkout:
     runs-on: ubuntu-latest
-      steps:
-    - uses: actions/checkout@v3
+        steps:
+      - uses: actions/checkout@v3
   process:
     runs-on: ubuntu-latest
       steps:
